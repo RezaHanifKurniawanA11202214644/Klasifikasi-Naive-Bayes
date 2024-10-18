@@ -1,4 +1,4 @@
-# Preprocessing Data Mining
+# Klasifikasi Naive Bayes
 
 Proyek ini adalah proyek yang melakukan klasifikasi data dengan menggunakan algoritma Naive Bayes.
 
@@ -29,7 +29,7 @@ Buka directory project Anda dan aktifkan virtual environment diterminal Vscode:
 ```
 
 ### 3. Jalankan Code
-Jalankan file Python untuk preprocessing:
+Jalankan file Python untuk klasifikasi:
 
 ```sh
 # Untuk contoh dari Pak Junta
