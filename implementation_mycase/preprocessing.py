@@ -1,6 +1,4 @@
-# Import libraries
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset dan membagi data ke variabel X sebagai attribute reguler dan y sebagai attribute label
@@ -17,12 +15,18 @@ print(miss)
 # Encoding data kategori ke numerik pada variabel X (attribute reguler) menggunakan OneHotEncoder dan ColumnTransformer
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
-ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [2, 3])], remainder='passthrough')
-X = np.array(ct.fit_transform(X))
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0,1, 2, 3])], remainder='passthrough')
+X = ct.fit_transform(X)
+print("\nData variabel X setelah di encoding:\n", X)
+
+# Ubah matriks sparse menjadi matriks dense jika perlu
+if hasattr(X, 'toarray'):
+    X = X.toarray()
+
 # Menampilkan data yang sudah di encoding
 print("\nData variabel X setelah di encoding:\n", X)
 
-# Encoding data kategori ke numerik pada variabel y (attribute label) menggunakan OneHotEncoder dan ColumnTransformer
+# Encoding data kategori ke numerik pada variabel y (attribute label) menggunakan LabelEncoder
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 y = le.fit_transform(y)
@@ -38,13 +42,3 @@ print("X_train:\n", X_train, "\n")
 print("X_test:\n", X_test, "\n")
 print("y_train:\n", y_train, "\n")
 print("y_test:\n", y_test, "\n")
-
-# Feature Scaling atau normalisasi data
-from sklearn.preprocessing import StandardScaler
-sc_X = StandardScaler()
-X_train = sc_X.fit_transform(X_train)
-X_test = sc_X.transform(X_test)
-
-# Mencetak data training dan data testing setelah feature scaling
-print("X_train:\n", X_train, "\n")
-print("X_test:\n", X_test, "\n")
