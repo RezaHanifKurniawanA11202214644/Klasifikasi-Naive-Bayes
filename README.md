@@ -37,7 +37,7 @@ Jalankan file Python untuk klasifikasi:
 cd  example_pak_junta
 
 # Jalankan kode
-python klasifikai-navive-bayes.py
+python naive_bayes.py
 
 # Untuk implementasi kasus Anda sendiri
 # Pindahkan direktori aktif ke folder implementation_mycase
@@ -45,5 +45,5 @@ cd  implementation_mycase
 
 # Jalankan kode
 python preprocessing.py
-python klasifikai-navive-bayes.py
+python naive_bayes.py
 ```
